@@ -9,6 +9,9 @@ require("dotenv").config(); // Load MONGO_URI from .env
 const app = express();
 const PORT = 5000;
 
+const cors = require("cors");
+app.use(cors());
+
 // MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI)
