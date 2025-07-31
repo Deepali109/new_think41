@@ -3,6 +3,7 @@
 // server.js or index.js
 const express = require("express");
 const mongoose = require("mongoose");
+const productRoutes = require("./routes/productRoutes");
 require("dotenv").config(); // Load MONGO_URI from .env
 
 const app = express();
@@ -15,6 +16,7 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Test route
+app.use("/api/products", productRoutes);
 app.get("/", (req, res) => {
   res.send("API is working");
 });
